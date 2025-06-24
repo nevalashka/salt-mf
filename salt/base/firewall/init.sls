@@ -1,0 +1,1 @@
+# Placeholder for base/firewall/init.sls

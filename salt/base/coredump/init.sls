@@ -1,0 +1,1 @@
+# Placeholder for base/coredump/init.sls

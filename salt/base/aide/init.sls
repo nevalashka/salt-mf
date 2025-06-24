@@ -1,0 +1,1 @@
+# Placeholder for base/aide/init.sls

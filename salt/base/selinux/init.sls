@@ -1,0 +1,1 @@
+# Placeholder for base/selinux/init.sls

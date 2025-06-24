@@ -1,0 +1,1 @@
+# Placeholder for base/ipv6/init.sls
