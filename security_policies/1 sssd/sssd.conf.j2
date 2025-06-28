@@ -1,0 +1,15 @@
+Port 22
+Protocol 2
+PermitRootLogin no
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials yes
+UsePAM yes
+AllowGroups sshusers
+ClientAliveInterval 300
+ClientAliveCountMax 2
+X11Forwarding no
+PrintMotd yes
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
