@@ -1,7 +1,6 @@
 create_bashusers_group:
   group.present:
     - name: bashusers
-    - comment: Группа с доступом к shell
 
 restrict_shells_execution:
   cmd.run:
