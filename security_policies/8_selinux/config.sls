@@ -10,7 +10,7 @@ install_selinux_packages:
 manage_selinux_config:
   file.managed:
     - name: /etc/selinux/config
-    - source: salt://8_selinux/files/config
+    - source: salt://8_selinux/files/selinux_config
     - mode: 0644
     - user: root
     - group: root
