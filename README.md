@@ -33,6 +33,9 @@ sudo salt '*' state.apply 1_policy_name.backup
 
 sudo salt '*' state.apply 1_policy_name.restore
 
+Дока
+
+https://docs.saltproject.io/salt/install-guide/en/latest/index.html
 
 ⸻
 ```

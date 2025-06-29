@@ -1,0 +1,11 @@
+# /etc/sudoers
+
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# Доменные админы (LDAP-группа)
+%domain_admins ALL=(ALL)       ALL
+
+# Allow root to run any commands anywhere
+root    ALL=(ALL:ALL) ALL
