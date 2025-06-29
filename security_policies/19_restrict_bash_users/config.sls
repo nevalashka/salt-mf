@@ -1,8 +1,9 @@
+# Создаём группу с доступом к shell
 create_bashusers_group:
   group.present:
     - name: bashusers
-    - comment: Группа с доступом к shell
 
+# Ограничиваем запуск оболочек только для группы bashusers
 restrict_shells_execution:
   cmd.run:
     - name: |
@@ -13,5 +14,4 @@ restrict_shells_execution:
           fi
         done
     - require:
-        - group: create_bashusers_group
-    - comment: Разрешаем запуск оболочек только группе bashusers
+      - group: create_bashusers_group
