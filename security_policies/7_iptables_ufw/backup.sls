@@ -1,11 +1,14 @@
-backup_iptables:
-  cmd.run:
-    - name: iptables-save > /root/iptables.rules.bak
-    - creates: /root/iptables.rules.bak
-    - comment: Создаём резервную копию текущих правил iptables
+ensure_iptables_dir:
+  file.directory:
+    - name: /etc/iptables
+    - user: root
+    - group: root
+    - mode: 0755
+    - comment: Убеждаемся, что /etc/iptables существует
 
-backup_ufw:
+backup_iptables_v4:
   cmd.run:
-    - name: ufw status verbose > /root/ufw_status.bak
-    - creates: /root/ufw_status.bak
-    - comment: Создаём резервную копию текущего статуса ufw
+    - name: iptables-save > /etc/iptables/rules.v4.bak
+    - require:
+      - file: ensure_iptables_dir
+    - comment: Сохраняем текущие IPv4 правила в .bak
