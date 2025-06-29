@@ -6,7 +6,7 @@ install-auth-packages:
 deploy-sssd:
   file.managed:
     - name: /etc/sssd/sssd.conf
-    - source: salt://security/auth/files/sssd.conf
+    - source: salt://~/salt-mf/security_policies/security/auth/files/sssd.conf
     - user: root
     - group: root
     - mode: 0600
