@@ -1,0 +1,5 @@
+# Запрет автоподключения всех USB съемных устройств
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", ENV{UDISKS_PRESENTATION_HIDE}="1"
+
+# Запрет автоподключения DVD-приводов (обычно /dev/sr0)
+ACTION=="add", KERNEL=="sr0", ENV{UDISKS_PRESENTATION_HIDE}="1"

@@ -45,7 +45,7 @@ save_iptables:
 enable_ufw:
   cmd.run:
     - name: ufw enable
-    - unless: ufw status | grep -q "Status: active"
+    - unless: "ufw status | grep -q 'Status: active'"
     - comment: Включаем ufw если он не активен
 
 # Устанавливаем базовые правила ufw

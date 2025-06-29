@@ -9,9 +9,3 @@ restore_issue_net:
     - name: /etc/issue.net
     - source: /etc/issue.net.bak
     - force: True
-
-restore_motd:
-  file.copy:
-    - name: /etc/motd
-    - source: /etc/motd.bak
-    - force: True
