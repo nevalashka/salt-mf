@@ -1,0 +1,23 @@
+# Установка базовой безопасности
+
+# Запрет прямого входа под root 
+PermitRootLogin yes
+
+# Аутентификация
+PasswordAuthentication no         # Запрет пароля (если только ключи)
+PubkeyAuthentication yes          # Разрешены ключи
+GSSAPIAuthentication no           # GSSAPI (Kerberos) отключён
+
+# Контроль пользователей и групп
+AllowUsers bob alice            # Только эти пользователи могут логиниться
+AllowGroups sshusers              # Или эти группы
+
+# Поддержка keepalive
+ClientAliveInterval 300           # Отправлять keepalive каждые 5 минут
+ClientAliveCountMax 3             # Разрывать соединение после 3 пропущенных
+
+# Включение баннера при входе по SSH (для отображения issue.net)
+Banner /etc/issue.net
+
+# Остальное по умолчанию
+Subsystem sftp /usr/lib/openssh/sftp-server
