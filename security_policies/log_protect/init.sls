@@ -1,1 +1,0 @@
-# Placeholder for base/log_protect/init.sls

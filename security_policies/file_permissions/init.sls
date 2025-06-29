@@ -1,1 +1,0 @@
-# Placeholder for base/file_permissions/init.sls

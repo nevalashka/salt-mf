@@ -1,1 +1,0 @@
-# Placeholder for base/kernel_modules/init.sls

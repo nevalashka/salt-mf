@@ -1,1 +1,0 @@
-# Placeholder for base/network_folders/init.sls

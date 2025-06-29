@@ -1,1 +1,0 @@
-# Placeholder for base/bash_restrict/init.sls

@@ -1,1 +1,0 @@
-# Placeholder for base/syslog/init.sls

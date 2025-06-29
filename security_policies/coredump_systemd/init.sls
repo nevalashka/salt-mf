@@ -1,1 +1,0 @@
-# Placeholder for base/coredump_systemd/init.sls

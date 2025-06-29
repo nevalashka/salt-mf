@@ -1,1 +1,0 @@
-# Placeholder for base/tmp_cleanup/init.sls
