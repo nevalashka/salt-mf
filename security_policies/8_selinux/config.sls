@@ -1,25 +1,27 @@
-install_selinux_policy:
+install_selinux_packages:
   pkg.installed:
-    - name: selinux-policy-targeted
-    - comment: Устанавливаем selinux-policy-targeted (если отсутствует)
+    - pkgs:
+        - selinux-basics
+        - selinux-policy-default
+        - policycoreutils
+        - python3-selinux
+    - comment: Установка необходимых пакетов SELinux для Debian
 
-
-install_policycoreutils:
-  pkg.installed:
-    - name: policycoreutils
-    - comment: Устанавливаем policycoreutils для управления SELinux
-
-configure_selinux:
+manage_selinux_config:
   file.managed:
     - name: /etc/selinux/config
-    - source: salt://8_selinux/files/selinux_config
+    - source: salt://8_selinux/files/config
+    - mode: 0644
     - user: root
     - group: root
-    - mode: 0644
-    - comment: Управляем конфигом SELinux, устанавливаем режим enforcing/targeted
+    - require:
+        - pkg: install_selinux_packages
+    - comment: Замена конфига SELinux на желаемый
 
-set_selinux_enforcing:
+activate_selinux:
   cmd.run:
-    - name: setenforce 1
-    - unless: sestatus | grep -q 'Current mode:.*enforcing'
-    - comment: Устанавливаем SELinux в режим enforcing немедленно
+    - name: selinux-activate
+    - unless: selinux-enabled
+    - require:
+        - file: manage_selinux_config
+    - comment: Активация SELinux (потребуется перезагрузка)
