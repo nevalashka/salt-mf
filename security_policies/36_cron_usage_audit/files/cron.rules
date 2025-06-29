@@ -1,0 +1,3 @@
+-w /usr/bin/crontab -p x -k cron_mod
+-w /etc/cron.allow -p wa -k cron_allow
+-w /etc/cron.deny -p wa -k cron_deny
