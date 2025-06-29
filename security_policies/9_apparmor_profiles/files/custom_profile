@@ -1,0 +1,14 @@
+# Это пример минимального профиля AppArmor
+# Можно добавить реальный профиль по потребности
+
+#include <tunables/global>
+
+/usr/sbin/sshd {
+  # Пример базовых правил для sshd
+  # Подробнее в документации AppArmor
+
+  #include <abstractions/base>
+  network,
+  capability,
+  file,
+}
