@@ -1,0 +1,17 @@
+#!/bin/bash
+# Восстановление прав и групп оболочек из бэкапа /root/shell_permissions_backup.txt
+
+if [ ! -f /root/shell_permissions_backup.txt ]; then
+  echo "Backup file not found: /root/shell_permissions_backup.txt"
+  exit 1
+fi
+
+while read -r perm links owner group file; do
+  if [ -f "$file" ]; then
+    chmod "$perm" "$file"
+    chown "$owner:$group" "$file"
+    echo "Restored $file permissions to $perm and owner to $owner:$group"
+  else
+    echo "File $file not found, skipping"
+  fi
+done < /root/shell_permissions_backup.txt
