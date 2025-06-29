@@ -1,7 +1,10 @@
 install-auth-packages:
   pkg.installed:
-    - pkgs:
+    - names:
       - sssd
+      - sssd-tools
+      - libpam-sss
+      - libnss-sss
 
 deploy-sssd:
   file.managed:
@@ -9,11 +12,13 @@ deploy-sssd:
     - source: salt://1_sssd/files/sssd.conf
     - user: root
     - group: root
-    - mode: 0600
+    - mode: 600
+    - require:
+      - pkg: install-auth-packages
 
 enable-sssd:
   service.running:
     - name: sssd
-    - enable: True
+    - enable: true
     - watch:
       - file: deploy-sssd
