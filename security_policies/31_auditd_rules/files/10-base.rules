@@ -1,0 +1,5 @@
+-w /etc/sudoers -p wa -k scope
+-w /etc/passwd -p wa -k passwd_changes
+-w /etc/shadow -p wa -k shadow_changes
+-w /var/log/lastlog -p wa -k logins
+-w /var/log/faillog -p wa -k faillog
